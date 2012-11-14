@@ -1,0 +1,548 @@
+<html class="csstransforms3d">
+<head>
+  <title>Foldable.Me</title>
+  <link rel="stylesheet" href="reset.css">
+  <style type="text/css">
+    div.hipster-holder {
+      width: 500px;
+      height:500px;
+      margin:3% auto;
+    }
+
+    .hipster-preview {
+      width:310px;
+      margin:0 auto;
+      -webkit-perspective-origin: 50% 50%;
+      -webkit-transform-origin: 140px 50%;
+      -webkit-transform-style:  preserve-3d;
+    }
+    .hipster-preview .hipster {
+      position: relative;
+      width: 400px;
+      height: 500px;
+      margin: 0 auto;
+      padding: 0;
+      -webkit-transform-style:  preserve-3d;
+      -webkit-transform:rotateX(-20deg) rotateY(-30deg) scale3d(0.85, 0.85, 0.85);
+      -webkit-animation:  roundandround 10s infinite linear;
+    }
+    .hipster-preview .cube {
+      position: absolute;
+      margin: 0 auto;
+      -webkit-transform-style:  preserve-3d;
+    }
+    .hipster-preview .surface {
+      position: absolute;
+      height: 300px;
+      width: 300px;
+      background-color:#CCCCCC;
+      background-repeat:no-repeat;
+      border: 1px solid #333333;
+      -webkit-backface-visibility:  hidden;
+      -webkit-transform-style:  flat;
+    }
+    .hipster-preview .surface ol,
+    .hipster-preview .surface ul {
+      display:block;
+      margin:0;
+    }
+    .hipster-preview .surface ul li {
+      list-style: none;
+    }
+    .hipster-preview .surface .photon-shader {
+      z-index: 1;
+    }
+    /*div.hipster-holder .hipster-preview #hipster-head {
+      z-index:3;
+    }
+    div.hipster-holder .hipster-preview #hipster-head .surface {
+      z-index:3;
+    }*/
+
+
+    /* head */
+    .hipster-preview #hipster-head {
+      width:292px;
+      height:202px;
+    }
+    .hipster-preview #hipster-head .top  {
+      width:292px;
+      height:292px;
+      background-position:-384px -873px;
+      -webkit-transform:  rotateX(90deg) translateZ(147px);
+    }
+    .hipster-preview #hipster-head .front {
+      width:292px;
+      height:202px;
+      background-position:-384px -669px;
+      -webkit-transform:translateZ(146px);
+    }
+    .hipster-preview #hipster-head .right {
+      width:292px;
+      height:202px;
+      background-position:-92px -669px;
+      -webkit-transform:  rotateY(90deg) translateZ(146px);
+    }
+    .hipster-preview #hipster-head .back {
+      width:292px;
+      height:202px;
+      background-position:-967px -669px;
+      -webkit-transform:rotateY(180deg) translateZ(146px);
+    }
+    .hipster-preview #hipster-head .left {
+      width:292px;
+      height:202px;
+      background-position:-675px -669px;
+      -webkit-transform:  rotateY(-90deg) translateZ(146px);
+    }
+    .hipster-preview #hipster-head .bottom {
+      width:292px;
+      height:292px;
+      background-position:-1040px -580px;
+      -webkit-transform:  rotateX(-90deg) rotate(180deg) translateZ(55px);
+    }
+
+    .hipster-preview #hipster-head .surface ul li {
+      display: block;
+      position: absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:202px;
+      background-position:-1038px -368px;
+      background-repeat:no-repeat;
+    }
+    .hipster-preview #hipster-head .front .hair {
+      background-position:-1038px -368px;
+    }
+    .hipster-preview #hipster-head .right .hair {
+      background-position:-1331px -368px;
+    }
+    .hipster-preview #hipster-head .back .hair {
+      background-position:-458px -368px;
+    }
+    .hipster-preview #hipster-head .left .hair {
+      background-position:-748px -368px;
+    }
+    .hipster-preview #hipster-head .top .hair {
+      height:292px;
+      background-position:-1040px -76px;
+    }
+
+    /* body */
+    .hipster-preview #hipster-body {
+      width:189px;
+      height:189px;
+      margin: 1px auto 0 auto;
+      -webkit-transform:  translateX(52px) translateY(203px);
+      z-index:1;
+    }
+    .hipster-preview #hipster-body .surface {
+      width:189px;
+      height:189px;
+      z-index:1;
+    }
+    .hipster-preview #hipster-body .top  {
+      background:transparent;
+      -webkit-transform:  rotateX(90deg) translateZ(95px);
+    }
+    .hipster-preview #hipster-body .front {
+      background-position:-1062px -100px;
+      -webkit-transform:translateZ(95px);
+    }
+    .hipster-preview #hipster-body .right {
+      background-position:-1250px -100px;
+      -webkit-transform:  rotateY(90deg) translateZ(95px);
+    }
+    .hipster-preview #hipster-body .back {
+      background-position:-685px -100px;
+      -webkit-transform:  rotateY(180deg) translateZ(95px);
+    }
+    .hipster-preview #hipster-body .left {
+      background-position:-873px -100px;
+      -webkit-transform:  rotateY(-90deg) translateZ(95px);
+    }
+    .hipster-preview #hipster-body .bottom {
+      background-position:-1062px -288px;
+      -webkit-transform:  rotateX(-90deg) rotate(180deg) translateZ(95px);
+    }
+
+    .hipster-preview #hipster-body .shirt {
+      height:189px;
+    }
+    .hipster-preview #hipster-body .front .shirt {
+      background-position: -1058px -102px;
+    }
+    .hipster-preview #hipster-body .left .shirt {
+      background-position: -873px -102px;
+    }
+    .hipster-preview #hipster-body .right .shirt {
+      background-position: -1250px -102px;
+    }
+    .hipster-preview #hipster-body .back .shirt {
+      background-position: -684px -75px;
+    }
+    .hipster-preview #hipster-body .bottom .shirt {
+      background-position:-800px -75px;
+    }
+
+    .hipster-preview .hipster .surface,
+    .hipster-preview .hipster.left #hipster-arm-right,
+    .hipster-preview .hipster.right #hipster-arm-left {
+      display: block;
+    }
+
+    /* arms */
+    .hipster-preview #hipster-arm-left,
+    .hipster-preview #hipster-arm-right {
+      position: absolute;
+      width:72px;
+      height:136px;
+      z-index: 3;
+    }
+    .hipster-preview #hipster-arm-left {
+      -webkit-transform: translateX(-22px) translateY(220px) rotateX(45deg);
+    }
+    .hipster-preview #hipster-arm-right {
+      -webkit-transform: translateX(243px) translateY(220px) rotateX(45deg);
+    }
+    .hipster-preview #hipster-arm-left .surface,
+    .hipster-preview #hipster-arm-right .surface {
+      width:72px;
+      height:136px;
+      z-index: 1;
+    }
+    .hipster-preview #hipster-arm-left .top,
+    .hipster-preview #hipster-arm-right .top  {
+      width:72px;
+      height:72px;
+      -webkit-transform:  rotateX(90deg) translateZ(37px);
+    }
+    .hipster-preview #hipster-arm-left .top {
+      background-position:-132px -92px;
+    }
+    .hipster-preview #hipster-arm-right .top {
+      background-position:-1507px -872px;
+    }
+    .hipster-preview #hipster-arm-left .front,
+    .hipster-preview #hipster-arm-right .front {
+      -webkit-transform:  translateZ(36px);
+    }
+    .hipster-preview #hipster-arm-left .front {
+      background-position:-276px -164px;
+    }
+    .hipster-preview #hipster-arm-right .front {
+      background-position:-1362px -944px;
+    }
+    .hipster-preview #hipster-arm-left .right,
+    .hipster-preview #hipster-arm-right .right {
+      -webkit-transform:  rotateY(90deg) translateZ(36px);
+    }
+    .hipster-preview #hipster-arm-right .right {
+      background-position:-1435px -944px;
+    }
+    .hipster-preview #hipster-arm-left .back,
+    .hipster-preview #hipster-arm-right .back {
+      -webkit-transform:  rotateY(180deg) translateZ(36px);
+    }
+    .hipster-preview #hipster-arm-left .back {
+      background-position:-133px -164px;
+    }
+    .hipster-preview #hipster-arm-right .back {
+      background-position:-1506px -944px;
+    }
+    .hipster-preview #hipster-arm-left .left,
+    .hipster-preview #hipster-arm-right .left {
+      -webkit-transform:  rotateY(-90deg) translateZ(36px);
+    }
+    .hipster-preview #hipster-arm-left .left {
+      background-position:-204px -164px;
+    }
+    .hipster-preview #hipster-arm-left .bottom,
+    .hipster-preview #hipster-arm-right .bottom {
+      width:72px;
+      height:72px;
+    }
+    .hipster-preview #hipster-arm-left .bottom {
+      background-position:-204px -296px;
+      -webkit-transform:  rotateX(-90deg) translateZ(100px) rotate(270deg);
+    }
+    .hipster-preview #hipster-arm-right .bottom {
+      background-position:-1430px -1077px;
+      -webkit-transform:  rotateX(-90deg) translateZ(100px) rotate(90deg);
+    }
+
+    .hipster-preview #hipster-arm-left .shirt {
+      height:136px;
+    }
+    .hipster-preview #hipster-arm-left .left .shirt {
+      background-position: -204px -162px;
+    }
+    .hipster-preview #hipster-arm-left .back .shirt {
+      background-position: -132px -162px;
+    }
+    .hipster-preview #hipster-arm-left .front .shirt {
+      background-position: -276px -162px;
+    }
+    .hipster-preview #hipster-arm-left .top .shirt {
+      background-position: -132px -91px;
+    }
+    .hipster-preview #hipster-arm-left .top .shirt,
+    .hipster-preview #hipster-arm-left .top .shirt,
+    .hipster-preview #hipster-arm-right .top .shirt,
+    .hipster-preview #hipster-arm-right .bottom .shirt {
+      height:72px;
+    }
+    .hipster-preview #hipster-arm-right .shirt {
+      height:136px;
+    }
+    .hipster-preview #hipster-arm-right .right .shirt {
+      background-position: -1435px -942px;
+    }
+    .hipster-preview #hipster-arm-right .back .shirt {
+      background-position: -1507px -942px;
+    }
+    .hipster-preview #hipster-arm-right .front .shirt {
+      background-position: -1363px -942px;
+    }
+    .hipster-preview #hipster-arm-right .top .shirt {
+      background-position: -1507px -870px;
+    }
+
+
+    /* feet */
+    .hipster-preview #hipster-feet {
+      width:141px;
+      height:72px;
+    }
+    .hipster-preview #hipster-feet {
+      -webkit-transform:  translateX(76px) translateY(392px);
+      z-index:0;
+    }
+    .hipster-preview #hipster-feet .surface {
+      width:141px;
+      height:72px;
+      z-index:0;
+      -webkit-backface-visibility:  visible;
+    }
+    .hipster-preview #hipster-feet .top {
+      width:141px;
+      height:141px;
+      background:transparent;
+      border:none;
+      -webkit-transform:  rotateX(90deg) translateZ(71px);
+    }
+    .hipster-preview #hipster-feet .front {
+      -webkit-transform:  translateZ(71px);
+    }
+    .hipster-preview #hipster-feet .right {
+      -webkit-transform:  rotateY(90deg) translateZ(71px);
+    }
+    .hipster-preview #hipster-feet .back {
+      -webkit-transform:  rotateY(180deg) translateZ(71px);
+    }
+    .hipster-preview #hipster-feet .left {
+      -webkit-transform:  rotateY(-90deg) translateZ(71px);
+    }
+    .hipster-preview #hipster-feet .bottom {
+      width:141px;
+      height:141px;
+      background-position:0 0;
+      -webkit-transform:  rotateX(-90deg) rotate(180deg) translateZ(0px);
+    }
+    .hipster-preview #hipster-feet .front,
+    .hipster-preview #hipster-feet .right,
+    .hipster-preview #hipster-feet .back,
+    .hipster-preview #hipster-feet .left {
+      background-position:-100px -700px;
+    }
+    .hipster-preview #hipster-feet .trousers {
+      width:141px;
+      height:72px;
+    }
+    .hipster-preview #hipster-feet .front .trousers {
+      background-position: -805px -1586px;
+    }
+    .hipster-preview #hipster-feet .back .trousers {
+      background-position: -528px -1586px;
+    }
+    .hipster-preview #hipster-feet .left .trousers {
+      background-position: -662px -1586px;
+    }
+    .hipster-preview #hipster-feet .right .trousers {
+      background-position: -946px -1586px;
+    }
+    .hipster-preview #hipster-feet .front .footwear {
+      position: absolute;
+      bottom:0;
+      width:142px;
+      height:33px;
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      background-position: -805px -1624px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hipster-holder" id="foldable-traqball">
+    <div class="hipster-preview">
+      <div class="hipster front">
+        <div id="hipster-head" class="cube">
+          <div class="surface top" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="hair" style="background-image:url(hipster-assets/foldable_adjusted.png);"></li>
+            </ul>
+          </div>
+          <div class="surface front" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="face" style="background-image:url(hipster-assets/foldable_adjusted.png);"></li>
+            </ul>
+          </div>
+          <div class="surface right" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="hair" style="background-image:url(hipster-assets/foldable_adjusted.png);"></li>
+            </ul>
+          </div>
+          <div class="surface back" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="hair" style="background-image:url(hipster-assets/foldable_adjusted.png);"></li>
+            </ul>
+          </div>
+          <div class="surface left" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="hair" style="background-image:url(hipster-assets/foldable_adjusted.png);"></li>
+            </ul>
+          </div>
+          <div class="surface bottom" style="background-image:url(hipster-assets/foldable_adjusted.png);"></div>
+        </div>
+
+        <div id="hipster-body" class="cube">
+          <div class="surface top" style="background-image:url(hipster-assets/foldable_adjusted.png);"></div>
+          <div class="surface front" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface right" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface back" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface left" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface bottom" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+        </div>
+
+        <div id="hipster-arm-left" class="cube">
+          <div class="surface top" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface front" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface right" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface back" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface left" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface bottom" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></div>
+        </div>
+
+        <div id="hipster-arm-right" class="cube">
+          <div class="surface top" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface front" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface right" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface back" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface left" style="background-image:url(hipster-assets/foldable_adjusted.png);">
+            <ul>
+              <li class="shirt" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></li>
+            </ul>
+          </div>
+          <div class="surface bottom" style="background-image:url(hipster-assets/foldable_adjusted_upsidedown.png);"></div>
+        </div>
+
+        <div id="hipster-feet" class="cube">
+          <div class="surface front" style="background-image:url(hipster-assets/foldable_adjusted_side.png);">
+            <ul>
+              <li class="trousers" style="background-image:url(hipster-assets/foldable_adjusted_side.png);"></li>
+            </ul>
+          </div>
+          <div class="surface right" style="background-image:url(hipster-assets/foldable_adjusted_side.png);">
+            <ul>
+              <li class="trousers" style="background-image:url(hipster-assets/foldable_adjusted_side.png);"></li>
+            </ul>
+          </div>
+          <div class="surface back" style="background-image:url(hipster-assets/foldable_adjusted_side.png);">
+            <ul>
+              <li class="trousers" style="background-image:url(hipster-assets/foldable_adjusted_side.png);"></li>
+            </ul>
+          </div>
+          <div class="surface left" style="background-image:url(hipster-assets/foldable_adjusted_side.png);">
+            <ul>
+              <li class="trousers" style="background-image:url(hipster-assets/foldable_adjusted_side.png);"></li>
+            </ul>
+          </div>
+          <div class="surface bottom" style="background:transparent;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script type="text/javascript" src="traqball.js"></script>
+  <script type="text/javascript" src="photon.js"></script>
+  <script type="text/javascript">
+    var light = new Photon.Light();
+    var faceGroup = new Photon.FaceGroup($(".hipster-preview")[0], $('.hipster-preview .surface'), 0.75, 0.15, true);
+
+    faceGroup.render(light, true);
+
+    $(window).on('traqBallRotate', function(){
+      faceGroup.render(light, true);
+    });
+
+    var traqBall = new Traqball({stage: "foldable-traqball", perspective: 1500});
+  </script>
+</body>
+</html>
